@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+      <script>
+        /*
+        Цикл на кожній ітерації пропонує через prompt ввести число більше 100
+        (але максимум 10 ітерацій циклу) . Якщо відвідувач ввів число менше ста –
+        попросити ввести ще раз, і таке інше. Якщо користувач вводить більше ста,
+        текст або цикл закінчує всі ітерації, то функція виводить в консоль останній
+        введення користувача і завершує функцію.
+        */
+
+       function promptNumbers(){
+           let numbetFromUser;
+
+           for (let i = 0; i < 10; i++){
+               numbetFromUser = prompt("Ви можете ввиести будь яке число більше 100");
+               console.log(numbetFromUser);
+               if (!isNaN(Number(numbetFromUser))){
+                   if (Number(numbetFromUser) > 100){
+                        break;
+                   }else {
+                        console.log("Число повинно бути більше 100")
+                   }
+               }else {
+                   console.log("Спробуйте ввести ще раз");
+               }
+           }
+       }
+
+       promptNumbers();
+      </script>
+</body>
+
+</html>
