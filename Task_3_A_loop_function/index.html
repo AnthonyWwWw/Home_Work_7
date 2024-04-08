@@ -9,7 +9,7 @@
 
 <body>
       <script>
-        /*
+        /* ДЗ 15. Функція з циклом
         Цикл на кожній ітерації пропонує через prompt ввести число більше 100
         (але максимум 10 ітерацій циклу) . Якщо відвідувач ввів число менше ста –
         попросити ввести ще раз, і таке інше. Якщо користувач вводить більше ста,
@@ -18,16 +18,21 @@
         */
 
        function promptNumbers(){
-           let numbetFromUser;
 
            for (let i = 0; i < 10; i++){
-               numbetFromUser = prompt("Ви можете ввиести будь яке число більше 100");
-               console.log(numbetFromUser);
-               if (!isNaN(Number(numbetFromUser))){
+               let numbetFromUser = prompt("Ви можете ввиести будь яке число більше 100");
+
+               if (numbetFromUser === null) {
+                   console.log("Користувач відмінив введення.");
+                   break;
+               }
+
+               if (!isNaN(Number(numbetFromUser))){//перевірка чи було введене число
                    if (Number(numbetFromUser) > 100){
-                        break;
+                       console.log(`Ваше число: ${numbetFromUser}`);
+                       break;
                    }else {
-                        console.log("Число повинно бути більше 100")
+                        console.log("Число повинно бути більше 100");
                    }
                }else {
                    console.log("Спробуйте ввести ще раз");
