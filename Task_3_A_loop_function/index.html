@@ -17,30 +17,38 @@
         введення користувача і завершує функцію.
         */
 
-       function promptNumbers(){
+        function promptNumbers() {
+            let lastInput = 0;
 
-           for (let i = 0; i < 10; i++){
-               let numbetFromUser = prompt("Ви можете ввиести будь яке число більше 100");
+            for (let i = 0; i < 10; i++) {
+                let numberFromUser = prompt("Ви можете ввести будь-яке число більше 100");
 
-               if (numbetFromUser === null) {
-                   console.log("Користувач відмінив введення.");
-                   break;
-               }
+                if (numberFromUser === null) {
+                    console.log("Користувач відмінив введення.");
+                    return;// виконання завершено, введення відмінено.
+                }
 
-               if (!isNaN(Number(numbetFromUser))){//перевірка чи було введене число
-                   if (Number(numbetFromUser) > 100){
-                       console.log(`Ваше число: ${numbetFromUser}`);
-                       break;
-                   }else {
+                let num = Number(numberFromUser);
+
+                if (!isNaN(num)) {
+                    if (num > 100) {
+                        lastInput = num;
+                        console.log(`Ваше число: ${num}`);
+                        return;
+                    } else {
                         console.log("Число повинно бути більше 100");
-                   }
-               }else {
-                   console.log("Спробуйте ввести ще раз");
-               }
-           }
-       }
+                        lastInput = num;
+                    }
+                } else {
+                    console.log(`Ваше значення не підходить: ${numberFromUser}`);
+                    return;
+                }
+            }
 
-       promptNumbers();
+            console.log(`Останнє останнє ввидине число: ${lastInput}, виконання звавершено, досягнута максимальна кількість ітерацій`);
+        }
+
+        promptNumbers();
       </script>
 </body>
 
